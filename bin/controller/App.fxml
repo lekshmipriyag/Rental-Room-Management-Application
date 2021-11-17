@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <AnchorPane prefHeight="300.0" prefWidth="300.0">
+         <children>
+            <Label layoutX="69.0" layoutY="98.0" text="Success" textFill="#1ea83c" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
+

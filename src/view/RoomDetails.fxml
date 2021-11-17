@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<!-- Each Room Detailed Information Page -->
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="654.0"
+	prefWidth="750.0" xmlns="http://javafx.com/javafx/8.0.171"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="controller.RoomDetailController">
+	<children>
+		<Label contentDisplay="CENTER" layoutX="205.0" layoutY="22.0"
+			prefHeight="44.0" prefWidth="215.0" text="Room Details"
+			textAlignment="CENTER">
+			<font>
+				<Font name="Times New Roman Bold Italic" size="30.0" />
+			</font>
+			<textFill>
+				<LinearGradient endX="1.0" endY="1.0"
+					startX="0.05714285714285716">
+					<stops>
+						<Stop color="#292085" />
+						<Stop color="#6b5a62" offset="1.0" />
+					</stops>
+				</LinearGradient>
+			</textFill>
+		</Label>
+		<ImageView fx:id="roomImage" fitHeight="308.0"
+			fitWidth="359.0" layoutX="19.0" layoutY="66.0" pickOnBounds="true"
+			preserveRatio="true" />
+		<Label fx:id="typeRoom" layoutX="389.0" layoutY="66.0"
+			prefHeight="30.0" prefWidth="255.0" text="Room Type"
+			textFill="#6b5a62">
+			<font>
+				<Font name="Baskerville Old Face" size="22.0" />
+			</font>
+		</Label>
+		<Label fx:id="bedRoom" layoutX="383.0" layoutY="99.0"
+			prefHeight="155.0" prefWidth="351.0" text="Bedrooms">
+			<font>
+				<Font name="Times New Roman" size="16.0" />
+			</font>
+		</Label>
+		<Label fx:id="rentTitle" layoutX="44.0" layoutY="390.0"
+			prefHeight="44.0" prefWidth="223.0">
+			<font>
+				<Font name="Times New Roman Bold Italic" size="20.0" />
+			</font>
+		</Label>
+		<GridPane fx:id="rentGrid" layoutX="30.0" layoutY="443.0"
+			prefHeight="132.0" prefWidth="238.0" visible="false">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES"
+					minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES"
+					minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Label prefHeight="36.0" prefWidth="100.0" text="Customer ID">
+					<font>
+						<Font name="Times New Roman" size="16.0" />
+					</font>
+				</Label>
+				<Label prefHeight="36.0" prefWidth="100.0" text="From"
+					GridPane.rowIndex="1">
+					<font>
+						<Font name="Times New Roman" size="16.0" />
+					</font>
+				</Label>
+				<Label prefHeight="36.0" prefWidth="100.0" text="To"
+					GridPane.rowIndex="2">
+					<font>
+						<Font name="Times New Roman" size="16.0" />
+					</font>
+				</Label>
+				<TextField fx:id="custID" prefHeight="25.0"
+					prefWidth="148.0" promptText="Customer ID" GridPane.columnIndex="1">
+					<font>
+						<Font name="Times New Roman" size="14.0" />
+					</font>
+				</TextField>
+				<DatePicker fx:id="fromDate" prefHeight="25.0"
+					prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<DatePicker fx:id="toDate" GridPane.columnIndex="1"
+					GridPane.rowIndex="2" />
+				<Button fx:id="rentRoom" mnemonicParsing="false"
+					onAction="#rentRoomAction" text="Rent" textAlignment="CENTER"
+					GridPane.rowIndex="3">
+					<font>
+						<Font name="Times New Roman" size="16.0" />
+					</font>
+				</Button>
+			</children>
+		</GridPane>
+		<TextField fx:id="hiddenRoomID" layoutX="420.0"
+			layoutY="44.0" visible="false" />
+		<TextField fx:id="hiddenRentFee" layoutX="430.0"
+			layoutY="54.0" visible="false" />
+		<TextField fx:id="hiddenRoomStatus" layoutX="440.0"
+			layoutY="64.0" visible="false" />
+		<TextField fx:id="hiddenRoomType" layoutX="450.0"
+			layoutY="74.0" visible="false" />
+		<TableView fx:id="rentHistory" layoutX="280.0"
+			layoutY="428.0" prefHeight="200.0" prefWidth="463.0">
+			<columns>
+				<TableColumn fx:id="recordID" prefWidth="144.0"
+					text="Record ID" />
+				<TableColumn fx:id="customerID" prefWidth="63.0"
+					text="Cus_ID" />
+				<TableColumn fx:id="rentDate" text="Start Date" />
+				<TableColumn fx:id="estimatedDate" prefWidth="69.0"
+					text="End Date" />
+				<TableColumn fx:id="actualReturnDate" prefWidth="103.0"
+					text="Return Date" />
+				<TableColumn fx:id="rentFee" prefWidth="103.0"
+					text="Rent fee" />
+				<TableColumn fx:id="lateFee" prefWidth="103.0"
+					text="Late fee" />
+				<TableColumn fx:id="totalRentFee" prefWidth="103.0"
+					text="Total fee" />
+
+
+			</columns>
+		</TableView>
+		<GridPane fx:id="returnGrid" layoutX="40.0" layoutY="453.0"
+			prefHeight="132.0" prefWidth="238.0" visible="false">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES"
+					minWidth="10.0" prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES"
+					minWidth="10.0" prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Label prefHeight="36.0" prefWidth="100.0" text="Customer ID">
+					<font>
+						<Font name="Times New Roman" size="16.0" />
+					</font>
+				</Label>
+				<Label prefHeight="36.0" prefWidth="100.0" text="Return Date"
+					GridPane.rowIndex="1">
+					<font>
+						<Font name="Times New Roman" size="16.0" />
+					</font>
+				</Label>
+				<TextField fx:id="returnCustomerID" prefHeight="25.0"
+					prefWidth="148.0" promptText="Customer ID" GridPane.columnIndex="1">
+					<font>
+						<Font name="Times New Roman" size="14.0" />
+					</font>
+				</TextField>
+				<DatePicker fx:id="returnDategrid" prefHeight="25.0"
+					prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<Button fx:id="returnRoom" mnemonicParsing="false"
+					onAction="#returnRoomAction" text="Return" textAlignment="CENTER"
+					GridPane.rowIndex="3">
+					<font>
+						<Font name="Times New Roman" size="16.0" />
+					</font>
+				</Button>
+			</children>
+		</GridPane>
+		<Label layoutX="448.0" layoutY="389.0" prefHeight="31.0"
+			prefWidth="149.0" text="Room History">
+			<font>
+				<Font name="Times New Roman Bold" size="20.0" />
+			</font>
+		</Label>
+		<Button fx:id="Maintenance" layoutX="414.0" layoutY="289.0"
+			mnemonicParsing="false" onAction="#roomMaintenanceAction"
+			prefHeight="31.0" prefWidth="192.0" text="Start Maintenance">
+			<font>
+				<Font name="Times New Roman" size="16.0" />
+			</font>
+		</Button>
+		<Label fx:id="maintenanceStatus" layoutX="409.0" layoutY="248.0"
+			prefHeight="32.0" prefWidth="192.0" textFill="#0e8d3d"
+			visible="false">
+			<font>
+				<Font name="System Bold" size="15.0" />
+			</font>
+		</Label>
+		<Button fx:id="completeMaint" layoutX="440.0" layoutY="289.0"
+			mnemonicParsing="false" onAction="#completeMaintenanceAction"
+			prefHeight="31.0" prefWidth="192.0" text="Complete Maintenance"
+			visible="false">
+			<font>
+				<Font name="Times New Roman" size="16.0" />
+			</font>
+		</Button>
+		<Label fx:id="completionDatelbl" layoutX="352.0" layoutY="330.0"
+			prefHeight="26.0" prefWidth="201.0"
+			text="Maintenance Completion Date" visible="false">
+			<font>
+				<Font size="14.0" />
+			</font>
+		</Label>
+		<Button fx:id="goBtn" layoutX="515.0" layoutY="362.0"
+			mnemonicParsing="false" onAction="#getCompletionDate" text="Submit"
+			visible="false" />
+		<DatePicker fx:id="completeMaintDate" layoutX="558.0"
+			layoutY="331.0" prefHeight="25.0" prefWidth="108.0" visible="false" />
+	</children>
+</AnchorPane>
